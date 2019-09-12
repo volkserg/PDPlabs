@@ -9,7 +9,7 @@ using namespace std;
 using namespace std::chrono_literals;
 
 
-string text = 'base text';
+string text = "base text";
 mutex text_mutex;
 
 void writer() {
