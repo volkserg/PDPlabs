@@ -1,8 +1,6 @@
 #include <iostream>
-#include <thread>
-#include <vector>
-#include <unistd.h>
-#include <stdlib.h>
+#include <fstream>
+#include <string>
 using namespace std;
 
 
@@ -37,7 +35,14 @@ unsigned long long int * random2(int n, int seed){
 int main(int argc, char *argv[])
 {
     int n = atoi(argv[1]);
-    unsigned long long int seed = atoi(argv[2]);
+
+    ifstream devrand;
+    devrand.open("/dev/random", ios::in | ios::binary);
+    unsigned long long int seed;
+    const auto bytes_num = sizeof seed;
+    devrand.read((char *) &seed,bytes_num);
+    devrand.close();
+    
     unsigned long long int *r1 = random1(n,seed);
     unsigned long long int *r2 = random2(n,seed);
     cout<<"-----------------FIRST RANDOM--------------------"<<endl;
