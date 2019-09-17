@@ -6,11 +6,11 @@
 using namespace std;
 
 
-long long int * random1(int n, int seed){
-    long long int * res = new long long int[n];
-    auto m = 18446744073709551615;
-    auto a = 6364136223846793005;
-    auto c = 1442695040888963407;
+unsigned long long int * random1(int n, int seed){
+    unsigned long long int * res = new unsigned long long int[n];
+    unsigned long long int m = 18446744073709551615;
+    unsigned long long int a = 6364136223846793005;
+    unsigned long long int c = 1442695040888963407;
     res[0] = seed;
     for(int i=1;i<n;i++){
         res[i] = (a*res[i-1]+c) % m;
@@ -19,10 +19,10 @@ long long int * random1(int n, int seed){
     return res;
 }
 
-long long int * random2(int n, int seed){
-    long long int * res = new long long int[n];
-    auto a = 2685821657736338717;
-    auto x = seed;
+unsigned long long int * random2(int n, int seed){
+    unsigned long long int * res = new unsigned long long int[n];
+    unsigned long long int a = 2685821657736338717;
+    unsigned long long int x = seed;
     res[0] = x;
     for(int i=1;i<n;i++){
         x = x ^ x >> 12;
@@ -37,9 +37,9 @@ long long int * random2(int n, int seed){
 int main(int argc, char *argv[])
 {
     int n = atoi(argv[1]);
-    int seed = atoi(argv[2]);
-    long long int *r1 = random1(n,seed);
-    long long int *r2 = random2(n,seed);
+    unsigned long long int seed = atoi(argv[2]);
+    unsigned long long int *r1 = random1(n,seed);
+    unsigned long long int *r2 = random2(n,seed);
     cout<<"-----------------FIRST RANDOM--------------------"<<endl;
     for(int i=0; i<n;i++){
         cout<<r1[i]<<endl;
