@@ -6,7 +6,7 @@ using namespace std;
 
 unsigned long long int * random1(int n, unsigned long long seed){
     unsigned long long int * res = new unsigned long long int[n];
-    unsigned long long int m = 18446744073709551615;
+    unsigned long long int m = 1844674407370955161;
     unsigned long long int a = 6364136223846793005;
     unsigned long long int c = 1442695040888963407;
     res[0] = seed;
