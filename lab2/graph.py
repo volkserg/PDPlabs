@@ -18,7 +18,7 @@ def main():
     mylist = []
     with open(filename,'r') as file:
         for row in file:
-            mylist.append(int(row))
+            mylist.append(float(row))
     histogram(mylist)
 
 if __name__ == "__main__":
