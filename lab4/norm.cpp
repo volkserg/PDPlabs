@@ -62,20 +62,20 @@ void norm(int num, unsigned long long int seed1, unsigned long long int seed2){
 int main(int argc, char *argv[])
 {
     int num = atoi(argv[1]);
-    int th_num = 2;
+    int th_num = atoi(argv[2]);
 
-    unsigned long long int *seeds = get_seeds(th_num);
+    unsigned long long int *seeds = get_seeds(th_num*2);
     // cout<<"seeds:"<<endl;
     // for(int i=0;i<th_num;++i){
-        // cout<<seeds[i]<<endl;
+    //     cout<<seeds[i]<<endl;
     // }
-    // vector<thread> threads;
+    vector<thread> threads;
     // cout<<"Starting generators:"<<endl;
-    // for(int i = 0; i < th_num; ++i) {
-    //     threads.push_back(thread(norm, num, seeds[i]));
-    //     }
-    // for (auto& th: threads){
-    //     th.join();
-    // }
+    for(int i = 0; i < th_num; i=i+2) {
+        threads.push_back(thread(norm,num, seeds[i], seeds[i+1]));
+        }
+    for (auto& th: threads){
+        th.join();
+    }
     norm(num, seeds[0],seeds[1]);
 }
