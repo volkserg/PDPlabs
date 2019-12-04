@@ -77,5 +77,5 @@ int main(int argc, char *argv[])
     for (auto& th: threads){
         th.join();
     }
-    norm(num, seeds[0],seeds[1]);
+    // norm(num, seeds[0],seeds[1]);
 }

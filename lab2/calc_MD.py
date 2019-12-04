@@ -1,11 +1,10 @@
 import numpy as np
 import math
-from matplotlib import pyplot as plt
 import sys
 
 def calculate(numbers):
-	M = sum(numbers)/len(numbers)/max(numbers)
-	D = math.sqrt(M)
+	M = sum(numbers)/len(numbers)#/max(numbers)
+	D = np.var(numbers)#/max(numbers)
 	return (M,D)
 
 
@@ -14,8 +13,8 @@ def main():
 	mylist = []
 	with open(filename,'r') as file:
 		for row in file:
-			mylist.append(int(row))
-	M,D = calculate(mylist)
+			mylist.append(float(row))
+	M,D = calculate(np.array(mylist))
 	print('M = %s'%M)
 	print('D = %s'%D)
 
