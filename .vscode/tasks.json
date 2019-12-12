@@ -9,8 +9,7 @@
                 "${file}",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}",
-                "-pthread",
-                "-lpthread"
+                "-pthread"
             ],
             "options": {
                 "cwd": "/usr/bin"
